@@ -14,7 +14,7 @@ An SDK for Dapr should provide serialization for two use cases. First, for API o
 
 ```java
     DaprClient client = (new DaprClientBuilder()).build();
-    client.invokeService(Verb.POST, "myappid", "saySomething", "My Message", null).block();
+    client.invokeService("myappid", "saySomething", "My Message", HttpExtension.POST).block();
 ```
 
 In the example above, the app will receive a `POST` request for the `saySomething` method with the request payload as `"My Message"` - quoted since the serializer will serialize the input String to JSON.
